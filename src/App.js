@@ -20,6 +20,9 @@ import AroundVanuatuSubLists from './components/AroundVanuatu/AroundVanuatuSubLi
 import AroundVanuatuDetailsPage from './components/AroundVanuatu/AroundVanuatuSubList/AroundVanuatuDetailsPage/AroundVanuatuDetailsPage.component';
 import RetailAndServicesDetail from './components/AroundVanuatu/RetailAndServices/RetailAndServicesDetail/RetailAndServicesDetail.component';
 import FoodAndDiningOutDetail from './components/AroundVanuatu/FoodAndDiningOut/FoodAndDiningOutDetail/FoodAndDiningOutDetail.component';
+import HolidayInnResortVanuatuSubPage from './components/HolidayInnResortVanuatu/HolidayInnResortVanuatuSubPage/HolidayInnResortVanuatuSubPage.component';
+import HolidayInnResortVanuatuDetailsPage from './components/HolidayInnResortVanuatu/HolidayInnResortVanuatuSubPage/HolidayInnResortVanuatuDatailPage/HolidayInnResortVanuatuDatail.component';
+
 /**
  * styles
  */
@@ -39,6 +42,9 @@ const App = () => {
           <Route exact path='/around_vanuatu/1/:id' component={AroundVanuatuDetailsPage} />
           <Route exact path='/around_vanuatu/3/:id' component={RetailAndServicesDetail} /> 
           <Route exact path='/around_vanuatu/4/:id' component={FoodAndDiningOutDetail} />
+          <Route exact path='/holiday_inn_resort_vanuatu/:id' component={HolidayInnResortVanuatuSubPage} />
+          <Route exact path='/holiday_inn_resort_vanuatu/:id/:id' component={HolidayInnResortVanuatuDetailsPage} />
+
      </Switch>
    </>
   );

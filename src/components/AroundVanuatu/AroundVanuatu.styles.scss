@@ -30,9 +30,13 @@
             line-height: 83px;
             opacity: 0.9;
             margin-top: -80px;
+         
     
         }
     
-    
+        & a {
+            color: white;
+            text-decoration: none !important;
+        }
     }
 }

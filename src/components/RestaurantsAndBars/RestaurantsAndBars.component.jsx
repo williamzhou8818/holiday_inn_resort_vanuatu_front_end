@@ -58,7 +58,7 @@ const RestaurantsAndBars = ({  location } ) => {
 
                { restaurantsAndBars.map((res) => {
                     return (
-                        <div className="main_card_list">
+                        <div className="main_card_list" key={res.slug+2}>
                             <div className="main_card_image">
                                 <img src={`${SiteAPI.imgStroge}${res.image}`} alt="restaurants bars images" />
                             </div>

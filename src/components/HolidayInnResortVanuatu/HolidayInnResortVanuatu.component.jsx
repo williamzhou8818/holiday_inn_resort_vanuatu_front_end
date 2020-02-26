@@ -58,14 +58,15 @@ const HolidayInnResortVanuatu =  ({  location }) => {
 
                { holidayInnResortVanuatus.map((res) => {
                     return (
-                        <div className="main_card_list">
+                        <div className="main_card_list" key={res.slug}>
                             <div className="main_card_image">
                                 <img src={`${SiteAPI.imgStroge}${res.image}`} alt="restaurants bars images" />
                             </div>
                            
                                 <div className="main_card_title">
-                                    {res.title} 
-            
+                                <Link to={`/holiday_inn_resort_vanuatu/${res.id}`}  className="links_styles">
+                                        {res.title} 
+                                </Link>
                                 </div>
                         </div>
                     )

@@ -32,7 +32,10 @@
             margin-top: -80px;
     
         }
-    
+        & a {
+            color: white;
+            text-decoration: none !important;
+        }
     
     }
 }
