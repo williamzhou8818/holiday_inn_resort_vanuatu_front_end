@@ -1,0 +1,36 @@
+.page_layout_sidebar {
+    height: 1400px;
+    background:  transparent linear-gradient(180deg, #7E82BC 0%, #3F415E 100%) 0% 0% no-repeat padding-box;
+}
+.restaurants_and_bars_details_contents {
+    background: #EBEBEB;
+
+    .restaurants_and_bars_details_image {
+        width: 914.2px;
+       
+   
+        
+    }
+    .restaurants_and_bars_details_contanter {
+        padding: 10px 50px;
+    }
+  
+}
+.restaurants_and_bars_menu_and_icon  {
+    display: flex;
+    position: absolute;
+    right: 85px;
+    bottom: 400px;
+    width: 200px;
+    height: 64px;
+    justify-content: flex-start;
+
+    div {
+        margin: 2px 2px;
+        color: #3D3E77
+    }
+}
+.MuiDialog-paperWidthSm {
+    max-width: 1080px !important;
+}
+

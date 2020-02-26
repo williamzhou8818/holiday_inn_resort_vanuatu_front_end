@@ -1,0 +1,34 @@
+.retail_service_wraper {
+    // border: 1px solid black;
+     width: 912px;
+     height: 1116px;
+ 
+     .retail_service_list_view {
+         display: flex;
+         background-color: rgb(255, 255, 255);
+ 
+         .retail_service_img {
+             flex: 1;
+             width: 350px;
+             height: 180px;
+             margin: 3px 0px;
+ 
+         
+         }
+         .retail_service_title {
+             flex: 2;
+             width: 350px;
+             height: 180px;
+             line-height: 40px;
+             color: #3D3E77;
+             margin: 3px 0px;
+             background-color: #EBEBEB;
+             p {
+                 margin-left: 35px;
+                 font-size: 25px;
+             }
+ 
+         }
+         
+     }
+ }

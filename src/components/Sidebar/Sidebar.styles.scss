@@ -1,0 +1,37 @@
+.side_bar_wraper {
+        //border: 0px solid black;
+        letter-spacing: 9px;
+        color: #FFFFFF;
+        font-size: 69px;
+        font-weight: 600;
+        transform: matrix(0, -1, 1, 0, 0, 0);
+
+        .side_bar_font {
+            position: absolute;
+            right: 220px;
+            top:-40px;
+            width: 1000px;
+            
+            
+
+        }
+    
+}
+
+.back_to_list_menu {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.728);
+    width: 100px;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 600;
+    margin-left: 32px;
+    margin-top: 56.7px;
+    p {
+        margin-top: -6px;
+    }
+    p:hover{
+        color:white;
+ 
+    }
+}

@@ -1,0 +1,16 @@
+.page_layout_footer {
+    position: absolute;
+    bottom: 0;
+    background: #EBEBEB 0% 0% no-repeat padding-box;
+    height: 63px;
+    width: 100%;
+    letter-spacing: 0.8px;
+    color: #3D3E77;
+    line-height: 63px;
+
+    span {
+        margin-left: 72px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+}

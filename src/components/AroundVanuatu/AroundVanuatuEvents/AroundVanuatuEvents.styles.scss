@@ -1,0 +1,25 @@
+.events_warper {
+    background: #EBEBEB;
+    height: 739px;
+    table { 
+
+        color: #3D3E77;
+        width: 100%;
+        text-align: left;
+        padding-top: 40px;
+        padding-left: 50px;
+
+       
+        th {
+            padding-bottom: 30px;
+            font-size: 24px;
+        }
+     
+        td {
+            width: 300px;
+            font-size: 17px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}
