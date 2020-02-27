@@ -40,7 +40,7 @@ useEffect(() => {
     return (
         <PageLayout>
             <div className="page_layout_sidebar">
-              <Sidebar sideBarLabel={sideBarLabel} style={retails_services_Style}/>
+              <Sidebar sideBarLabel={sideBarLabel} style={retails_services_Style} />
             </div>
             <div className="restaurants_and_bars_details_contents">
                     <div className="restaurants_and_bars_details_image">

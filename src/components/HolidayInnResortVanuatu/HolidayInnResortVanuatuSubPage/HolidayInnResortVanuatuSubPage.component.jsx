@@ -49,8 +49,7 @@ const HolidayInnResortVanuatuSubPage = (props) => {
                 console.log(_setHolidayInnResortVanuatuSubFilter)
                 setHolidayInnResortVanuatuSub(_setHolidayInnResortVanuatuSubFilter);
 
-             }) 
-             .catch(err => console.log(err));
+             })
        
         // eslint-disable-next-line
     }, []);
@@ -62,7 +61,7 @@ const HolidayInnResortVanuatuSubPage = (props) => {
                 setHolidayInnResortVanuatuCate(res.data[props.match.params.id-1]);
 
              }) 
-             .catch(err => console.log(err));
+           
        
         // eslint-disable-next-line
     }, [])
@@ -71,7 +70,7 @@ const HolidayInnResortVanuatuSubPage = (props) => {
         <>
          <PageLayout>
           <div className="page_layout_sidebar">
-              <Sidebar sideBarLabel={sideBarLabel}  style={holiday_inn_resort_sidebar}/>
+              <Sidebar sideBarLabel={sideBarLabel}  style={holiday_inn_resort_sidebar} MainPath={`/holiday_inn_resort_vanuatu`}/>
           </div>
           <div className="!#">
                 <div className="events_header_warper" >
@@ -84,9 +83,11 @@ const HolidayInnResortVanuatuSubPage = (props) => {
                                 <div className="retail_service_wraper">
               
                                             { holidayInnResortVanuatuSub.map((res,index) => { 
+                                                let key= index + Math.random(10) ;
+                                                // console.log(key)
                                                 return (
-                                                    <>
-                                                        <div className="retail_service_list_view" key={index}>
+                                                   
+                                                        <div className="retail_service_list_view" key={key}>
                                                             <div  className="retail_service_img">
                                                                 <img src={`${SiteAPI.imgStroge}${res.image}`} alt="" width="100%" height="100%"/>
                                                             </div>
@@ -97,7 +98,7 @@ const HolidayInnResortVanuatuSubPage = (props) => {
                                                                     </p>
                                                             </Link>
                                                         </div>
-                                                    </>
+                                                   
 
                                                 )
                                                 })

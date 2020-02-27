@@ -60,7 +60,7 @@ export default (props) => {
     return (
         <PageLayout>
             <div className="page_layout_sidebar">
-               <Sidebar sideBarLabel={sideBarLabel}/>
+               <Sidebar sideBarLabel={sideBarLabel}  Name="holiday_inn_resort_vanuatu/1"/>
             </div>
             <div className="restaurants_and_bars_details_contents">
                     <div className="restaurants_and_bars_details_image">

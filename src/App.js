@@ -1,5 +1,7 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom'
+import styled from "styled-components";
+import { Route, Switch, withRouter } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 /**
  * Layouts
  */
@@ -28,10 +30,20 @@ import HolidayInnResortVanuatuDetailsPage from './components/HolidayInnResortVan
  */
 import './App.css';
 
-const App = () => {
+const App = ({location}) => {
   return (
-   <>
-    <Switch>
+    <Wrapper>    
+
+   <TransitionGroup>
+
+   <CSSTransition  
+    key={location.key}
+    timeout={{ enter: 900, exit: 900 }}
+    classNames={'fade'}
+
+   >
+
+    <Switch location={location}>
           <Route exact path='/' component={ShowCasse} /> 
           <Route exact path='/restaurants_bars' component={RestaurantsAndBars} />
           <Route exact path='/restaurants_bars/:id' component={RestaurantsAndBarsDetails} />
@@ -46,8 +58,39 @@ const App = () => {
           <Route exact path='/holiday_inn_resort_vanuatu/:id/:id' component={HolidayInnResortVanuatuDetailsPage} />
 
      </Switch>
-   </>
+
+     </CSSTransition>
+
+   </TransitionGroup>
+   </Wrapper>
+
   );
 }
+const Wrapper = styled.div`
+    .fade-enter {
+        opacity: 0.01;
+    }
+    .fade-enter.fade-enter-active {
+        opacity: 1;
+        transition: opacity 2300ms ease-in;
+    }
+    .fade-exit {
+        opacity: 1;
+    }
+      
+    .fade-exit.fade-exit-active {
+        opacity: 0.01;
+        transition: opacity 1300ms ease-in;
+    }
+    div.transition-group {
+      position: relative;
+    }
+    section.route-section {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+`;
 
-export default App;
+export default withRouter(App);

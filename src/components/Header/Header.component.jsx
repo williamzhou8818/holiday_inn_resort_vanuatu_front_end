@@ -1,5 +1,6 @@
 import React, {useState, useEffect, Fragment} from 'react';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 import axios from 'axios';
 
 /**
@@ -33,6 +34,7 @@ export default  () => {
         slug: ''
     }]);
 
+    const [date, setDate] = useState(new Date())
 
     /**
      * GET Page Meta data from Api
@@ -69,8 +71,8 @@ export default  () => {
             </div>
             <div className="header_info_bar">
                 <div dangerouslySetInnerHTML={{__html: pageMeta.site_title }} /> 
-                <p>10:53 AM</p>
-                <p>07 JANUARY 2020</p>   
+                <p>{moment(date).format('h:mm A')}</p>
+                <p> {moment(date).format('d')} {moment(date).format('MMM')} {moment(date).format('YYYY')} </p>   
             </div>
             <div className="header_navbar_wraper">
                  <Navbar navBar={navBar} />
