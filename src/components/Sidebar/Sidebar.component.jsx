@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from "react-router";
 
 import './Sidebar.styles.scss';
+import BackButtom from './Back_to_List_button.svg';
 
 const Sidebar =  (props) => { 
         // console.log('path Name  props ' + props.Name);
@@ -59,8 +60,9 @@ const Sidebar =  (props) => {
             return (
               
                 <div className="back_to_list_menu" onClick={RouterPathRedretion} style={{zIndex: '9999'}}>
-                <img src="https://img.icons8.com/ios-glyphs/48/000000/menu.png"  alt="" /> 
-                <p  >BACK TO LIST</p>
+                <img src={BackButtom}  alt="" onClick={RouterPathRedretion} style={{zIndex: '9999'}} /> 
+                <p>BACK TO LIST</p>
+                <div className="hrBar"><hr/></div>
                </div>
             )
         }

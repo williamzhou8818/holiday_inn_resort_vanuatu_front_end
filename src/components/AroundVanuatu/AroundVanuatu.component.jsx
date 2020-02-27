@@ -81,8 +81,8 @@ import './AroundVanuatu.styles.scss';
 /** export to sider bar nav */
 const AroundVanuatu_Sidebar_Style = {
     position: 'absolute',
-    right: '70px',
-    top:'-40px',
+    right: '10px',
+    top:'-33px',
     width: '1000px',
     
 }

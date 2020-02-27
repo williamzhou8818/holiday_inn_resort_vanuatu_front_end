@@ -10,7 +10,7 @@ const Navbar =  ({navBar }) => {
                 { navBar.map((nav, index) => {
                     return (
                          index <= 3 && 
-                               <li key={nav.slug} ><NavLink  activeClassName="active" to={`/${nav.slug}`}><p>{nav.title}</p></NavLink></li>
+                            <NavLink  activeClassName="active" key={nav.slug} to={`/${nav.slug}`}><li><p>{nav.title}</p></li></NavLink>
                           
                              
                         )  

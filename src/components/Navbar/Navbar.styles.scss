@@ -22,17 +22,31 @@
     }
 
     }
-    li:active {
-        border-bottom: 12px solid #19A0AF;
+   .active {
+        border-bottom: 12px solid #19A0AF !important;
+    }
+    a {
+
+        background: #EBEBEB;
     }
   
     li:nth-child(1) {
-
         margin-right: 5px;
+        width: 258px;
+        margin-left: 4px;
+        p {
+            margin-top: 34px;
+
+        }
     }
     li:nth-child(2) {
         margin-right:5px;
-   
+        p {
+            width: 200px;
+            text-align: center;
+            margin-top: 34px;
+            margin-left: 32px;
+        }
     
     }
     li:nth-child(3) {
@@ -41,8 +55,19 @@
         p {
             width: 200px;
             text-align: center;
+            margin-top: 34px;
             margin-left: 32px;
         }
+        
+    }
+    li:nth-child(4) {
+         
+            p {
+           
+                margin-top:60px !important;
+            }
+           
+  
         
     }
     a {

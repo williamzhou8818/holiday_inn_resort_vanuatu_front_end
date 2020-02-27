@@ -42,7 +42,7 @@ export default (props) => {
     return (
         <PageLayout>
             <div className="page_layout_sidebar">
-               <Sidebar sideBarLabel={sideBarLabel} MainPath={`/around_vanuatu/1`}/>
+               <Sidebar sideBarLabel={sideBarLabel} MainPath={`/around_vanuatu/1`} style={around_vanuatu_Details_styles}/>
             </div>
             <div className="restaurants_and_bars_details_contents">
                     <div className="restaurants_and_bars_details_image">
@@ -65,3 +65,11 @@ export default (props) => {
 
 
 
+/** exporting to Sidebar styles */
+const around_vanuatu_Details_styles = {
+    position: 'absolute',
+    right: '87px',
+    top:'-40px',
+    width: '1000px',
+    
+}

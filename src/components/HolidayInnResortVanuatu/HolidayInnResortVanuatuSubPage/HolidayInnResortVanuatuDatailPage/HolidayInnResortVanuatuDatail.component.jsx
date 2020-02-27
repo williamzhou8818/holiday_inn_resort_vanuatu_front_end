@@ -63,7 +63,7 @@ export default (props) => {
 /** exporting to Sidebar styles */
 const holiday_inn_resort_Details_sidebar = {
     position: 'absolute',
-    right: '255px',
+    right: '325px',
     top:'-40px',
     width: '1000px',
     

@@ -32,18 +32,20 @@ import './App.css';
 
 const App = ({location}) => {
   return (
-    <Wrapper>    
+  //   <Wrapper>    
 
-   <TransitionGroup>
+  //  <TransitionGroup>
 
-   <CSSTransition  
-    key={location.key}
-    timeout={{ enter: 900, exit: 900 }}
-    classNames={'fade'}
+  //  <CSSTransition  
+  //   key={location.key}
+  //   timeout={{ enter: 1000, exit: 1000 }}
+  //   classNames={'fade'}
 
-   >
+  // >
 
-    <Switch location={location}>
+  // location={location}
+    <Switch >
+
           <Route exact path='/' component={ShowCasse} /> 
           <Route exact path='/restaurants_bars' component={RestaurantsAndBars} />
           <Route exact path='/restaurants_bars/:id' component={RestaurantsAndBarsDetails} />
@@ -59,38 +61,42 @@ const App = ({location}) => {
 
      </Switch>
 
-     </CSSTransition>
+     //{/* </CSSTransition>
 
-   </TransitionGroup>
-   </Wrapper>
+   //</TransitionGroup>
+  // </Wrapper> */}
 
   );
 }
-const Wrapper = styled.div`
-    .fade-enter {
-        opacity: 0.01;
-    }
-    .fade-enter.fade-enter-active {
-        opacity: 1;
-        transition: opacity 2300ms ease-in;
-    }
-    .fade-exit {
-        opacity: 1;
-    }
+// const Wrapper = styled.div`
+//     .fade-enter {
+//         opacity: 0.01;
+//         transform: translate3d(100%, 0, 0);
+//     }
+//     .fade-enter.fade-enter-active {
+//         opacity: 1;
+//         transition: opacity 200ms ease-in;
+//         transform: translate3d(0, 0, 0);
+//         transition: all 500ms ease-in;
+//     }
+//     .fade-exit {
+//         opacity: 1;
+//     }
       
-    .fade-exit.fade-exit-active {
-        opacity: 0.01;
-        transition: opacity 1300ms ease-in;
-    }
-    div.transition-group {
-      position: relative;
-    }
-    section.route-section {
-      position: absolute;
-      width: 100%;
-      top: 0;
-      left: 0;
-    }
-`;
+//     .fade-exit.fade-exit-active {
+//         opacity: 0.01;
+//         transition: opacity 500ms ease-in;
+//     }
+//     div.transition-group {
+//       position: relative;
+//     }
+//     section.route-section {
+//       top: 0;
+//       left: 0;
+//       width: 100%;
+//       height: 100%;
+//       z-index: 1000px;
+//     }
+// `;
 
 export default withRouter(App);

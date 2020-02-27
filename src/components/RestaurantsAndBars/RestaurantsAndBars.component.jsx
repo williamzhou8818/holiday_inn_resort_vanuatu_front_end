@@ -51,7 +51,7 @@ const RestaurantsAndBars = ({  location } ) => {
     return (
         <PageLayout>
             <div className="page_layout_sidebar">
-                <Sidebar sideBarLabel={sideBarLabel}/>
+                <Sidebar sideBarLabel={sideBarLabel}  style={RestaurantsAndBars_Style}/>
             </div>
             <div>            
                {/* {location.pathname} */}
@@ -77,5 +77,15 @@ const RestaurantsAndBars = ({  location } ) => {
         </PageLayout>
     )
 };
+
+/** export to sider bar nav */
+const RestaurantsAndBars_Style = {
+    position: 'absolute',
+    right: '46px',
+    top:'-30px',
+    width: '1000px',
+  
+    
+}
 
 export default withRouter(RestaurantsAndBars);

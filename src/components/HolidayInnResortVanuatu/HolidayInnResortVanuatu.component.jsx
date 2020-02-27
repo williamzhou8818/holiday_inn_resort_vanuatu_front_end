@@ -100,7 +100,7 @@ const HolidayInnResortVanuatu =  ({  location }) => {
 /** export to sider bar nav */
 const HolidayInnResortVanuatu_Style = {
     position: 'absolute',
-    right: '300px',
+    right: '230px',
     top:'-30px',
     width: '1000px',
   

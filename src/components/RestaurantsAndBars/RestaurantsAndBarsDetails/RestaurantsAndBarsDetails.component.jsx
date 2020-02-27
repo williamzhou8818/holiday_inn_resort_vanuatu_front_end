@@ -60,7 +60,7 @@ export default (props) => {
     return (
         <PageLayout>
             <div className="page_layout_sidebar">
-               <Sidebar sideBarLabel={sideBarLabel}  Name="holiday_inn_resort_vanuatu/1"/>
+               <Sidebar sideBarLabel={sideBarLabel}  Name="holiday_inn_resort_vanuatu/1" style={restaurantsAndBarsDetails_Style} />
             </div>
             <div className="restaurants_and_bars_details_contents">
                     <div className="restaurants_and_bars_details_image">
@@ -110,4 +110,14 @@ export default (props) => {
              
         </PageLayout>
     )
+}
+
+/** export to sider bar nav */
+const restaurantsAndBarsDetails_Style = {
+    position: 'absolute',
+    right: '168px',
+    top:'-30px',
+    width: '1000px',
+  
+    
 }

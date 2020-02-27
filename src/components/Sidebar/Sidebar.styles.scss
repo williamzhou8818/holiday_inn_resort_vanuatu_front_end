@@ -23,15 +23,31 @@
     color: rgba(255, 255, 255, 0.728);
     width: 100px;
     text-align: center;
-    font-size: 26px;
+    font-size: 21px;
     font-weight: 600;
     margin-left: 32px;
-    margin-top: 56.7px;
+    letter-spacing:2px;
+    margin-top: 15.7px;
     p {
-        margin-top: -6px;
+        margin-top: -14px;
     }
     p:hover{
         color:white;
  
     }
+
+}
+.hrBar{
+    z-index: 9999;
+    
+}
+hr {
+    position:absolute;
+    top: 138px;
+    background:#C6C6E2;;
+    width: 171px;
+    height: 5px;
+    left: -38px;
+    border: 1px solid #C6C6E2;
+    color: #C6C6E2;
 }

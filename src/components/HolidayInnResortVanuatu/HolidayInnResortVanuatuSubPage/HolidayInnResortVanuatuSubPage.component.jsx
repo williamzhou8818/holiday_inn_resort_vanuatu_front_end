@@ -128,7 +128,7 @@ const HolidayInnResortVanuatuSubPage = (props) => {
 /** exporting to Sidebar styles */
 const holiday_inn_resort_sidebar = {
     position: 'absolute',
-    right: '255px',
+    right: '310px',
     top:'-40px',
     width: '1000px',
     
