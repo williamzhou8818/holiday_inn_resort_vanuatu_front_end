@@ -26,26 +26,42 @@ const HolidayInnResortVanuatu =  ({  location }) => {
 
 
     useEffect(() => { 
-        if (location.pathname === "/holiday_inn_resort_vanuatu") {
-            //TEMP PUT HARCODE NEED TO GET DATA FROM API
-            axios.get(`${SiteAPI.rootURI}api/navs`).then(res => {
-                setSidebarLabel(res.data[0].title);
-            })
+        let isCleanUp = false;
+        if(!isCleanUp) {
+            if (location.pathname === "/holiday_inn_resort_vanuatu") {
+                //TEMP PUT HARCODE NEED TO GET DATA FROM API
+                axios.get(`${SiteAPI.rootURI}api/navs`).then(res => {
+                    setSidebarLabel(res.data[0].title);
+                });
+                axios.get(`${SiteAPI.rootURI}api/holidayinnresortvanauatucate`)
+                .then(res => { 
+                    setHolidayInnResortVanuatus(res.data);
+                })
+            }
+        }
+
+        return () => {
+            isCleanUp = true;
         }
         // eslint-disable-next-line
     }, []);
 
-    useEffect(() => {
+    // useEffect(() => {
+    //     let isCleanUp = false;
+    //     if(!isCleanUp) {
 
-        if (location.pathname === "/holiday_inn_resort_vanuatu" ) {
-            axios.get(`${SiteAPI.rootURI}api/holidayinnresortvanauatucate`)
-                 .then(res => { 
-                    setHolidayInnResortVanuatus(res.data);
-                 })
-        }
-
-        // eslint-disable-next-line
-    });
+    //         if (location.pathname === "/holiday_inn_resort_vanuatu" ) {
+    //             axios.get(`${SiteAPI.rootURI}api/holidayinnresortvanauatucate`)
+    //                 .then(res => { 
+    //                     setHolidayInnResortVanuatus(res.data);
+    //                 })
+    //         } 
+    //    }
+    //    return () => {
+    //     isCleanUp = true;
+    // }
+    //     // eslint-disable-next-line
+    // });
 
 
     return (

@@ -33,23 +33,35 @@ import './Gallery.styles.scss';
 
     //** HTTP */
     useEffect(()=> { 
-        if(props.location.pathname === '/gallery') {
-            axios.get(`${SiteAPI.rootURI}api/gallery`).then(res => {
-                setGallary(res.data);
-            })
+        let isCleanUp = false;
+        if(!isCleanUp) {
+            if(props.location.pathname === '/gallery') {
+                axios.get(`${SiteAPI.rootURI}api/gallery`).then(res => {
+                    setGallary(res.data);
+                })
+            }
+    
         }
-
+        return () => { 
+            isCleanUp = true;
+        };
         // eslint-disable-next-line
     }, []);
 
     useEffect(() => {
+        let isCleanUp = false;
         // console.log('asbkdkf lsl', props.location.pathname)
-        if (props.location.pathname === '/gallery') {
-            axios.get(`${SiteAPI.rootURI}api/navs`).then(res => {
-                setSidebarLabel(res.data[3].title);
-            })
+        if (!isCleanUp) {
+            if (props.location.pathname === '/gallery') {
+                axios.get(`${SiteAPI.rootURI}api/navs`).then(res => {
+                    setSidebarLabel(res.data[3].title);
+                })
+            }
         }
-        
+
+        return () => { 
+            isCleanUp = true;
+        };
         // eslint-disable-next-line
     },[]);
 
@@ -76,13 +88,13 @@ import './Gallery.styles.scss';
                 <div className="gallary_grid_layout">
                     { gallary.map((gallary, index) => { 
                         return (
-                            <>
-                              <img  
+                            <div key={gallary.id+'c%'}>
+                              <img
                                 src={`${SiteAPI.imgStroge}${gallary.gallery_images}`} 
                                 alt="" width="100%" 
                                 onClick={() => ShowBigImage(index)}
                                />
-                            </>
+                            </div>
                         )
                         
                       })

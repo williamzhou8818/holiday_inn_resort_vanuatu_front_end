@@ -61,7 +61,7 @@ const AroundVanuatuSublist = (props) => {
             { props.match.params.id == 1 && (
                         <PageLayout>
                                 <div className="page_layout_sidebar">
-                                    <Sidebar sideBarLabel={sideBarLabel}  style={around_vanuatu_sublist_styles} />
+                                    <Sidebar sideBarLabel={sideBarLabel}  style={around_vanuatu_sublist_styles} MainPath={`/around_vanuatu`}/>
                                 </div>
                                 <div className="around_vanuatu_sublist__scroll_view_wraper">
                                     { aroundVanuatuSubItemList.map(res => { 
@@ -183,7 +183,7 @@ const AroundVanuatuSublist = (props) => {
                      
                  <PageLayout>
                      <div className="page_layout_sidebar">
-                         <Sidebar sideBarLabel={sideBarLabel}  style={around_vanuatu_sublist_styles} />
+                         <Sidebar sideBarLabel={sideBarLabel}  style={around_vanuatu_sublist_styles}  />
                      </div>
                      <div className="!#">
                          { aroundVanuatuSubItemList.map(res => { 
