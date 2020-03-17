@@ -17,6 +17,7 @@ export default (props) => {
     
     const [aroundVanuatuDetails, setAroundVanuatuDetails] = useState({
         image:'',
+        title:'',
         body: ''
     });
     const [sideBarLabel, setSidebarLabel] = useState('');
@@ -47,6 +48,9 @@ export default (props) => {
             <div className="restaurants_and_bars_details_contents">
                     <div className="restaurants_and_bars_details_image">
                             <img src={`${SiteAPI.imgStroge}${aroundVanuatuDetails.image}`} alt="Bar Details" width="100%" height="100%"/> 
+                            <div className="details_page_card_title">
+                               <p>{aroundVanuatuDetails.title}</p> 
+                            </div>
                         <div className="restaurants_and_bars_details_contanter"> 
                             <div dangerouslySetInnerHTML={{__html: aroundVanuatuDetails.body}}  />
                         </div>

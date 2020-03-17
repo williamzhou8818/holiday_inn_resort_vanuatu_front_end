@@ -3,16 +3,19 @@ import './Navbar.styles.scss';
 import { NavLink} from 'react-router-dom'
 
 const Navbar =  ({navBar }) => {
-    
     return (
-        <div >
+        <div>
+            
             <ul className="navbar_ul">
                 { navBar.map((nav, index) => {
                     return (
                          index <= 3 && 
-                            <NavLink  activeClassName="active" key={nav.slug} to={`/${nav.slug}`}><li><p>{nav.title}</p></li></NavLink>
+                            <NavLink  activeClassName="active" key={nav.slug} to={`/${nav.slug}`}>
+                                <li className="nav_li">
+                                    {nav.title}
+                                </li>
+                            </NavLink>
                           
-                             
                         )  
                     } )
                         

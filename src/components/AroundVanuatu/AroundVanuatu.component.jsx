@@ -10,7 +10,7 @@ import {SiteAPI} from './../../utils/siteInit';
 /** styles */
 import './AroundVanuatu.styles.scss';
 
-
+import IsLoading from './../../layouts/IsLoading/IsLoading.component';
 
  const AroundVanuatu = ({location}) => {
     
@@ -23,14 +23,18 @@ import './AroundVanuatu.styles.scss';
 
     const [sideBarLabel, setSidebarLabel] = useState('');
 
-
+    const [isLoading, setIsLoading] = useState(false);
     /**HTTP */
 
     useEffect(() => { 
+
+        setIsLoading(true);
+        
         if(location.pathname === '/around_vanuatu') {
             //temp put harcore here 
             axios.get(`${SiteAPI.rootURI}api/navs`).then(res => {
                 setSidebarLabel(res.data[1].title);
+                setIsLoading(false);
             })
           
         }
@@ -41,6 +45,7 @@ import './AroundVanuatu.styles.scss';
         if(location.pathname === '/around_vanuatu') {
             axios.get(`${SiteAPI.rootURI}api/around_vanuatu`).then(res => { 
                 setAroundVanuatu(res.data);
+                setIsLoading(false);
             })
         }
      // eslint-disable-next-line
@@ -51,27 +56,32 @@ import './AroundVanuatu.styles.scss';
             <div className="page_layout_sidebar">
                 <Sidebar sideBarLabel={sideBarLabel} style={AroundVanuatu_Sidebar_Style} />
             </div>
-            <div className="scroll_view_wraper">
-                { aroundVanuatu.map((res, index) => {
-                    return (
-                        index < 4 && 
-                        <div className="main_card_list" key={res.id}>
-                            <div className="main_card_image">
-                            <img src={`${SiteAPI.imgStroge}${res.image}`} alt="around vanuatu images" />
-                            </div>
-                            <Link to={`/around_vanuatu/${res.id}`} >
-                                <div className="main_card_title">
-                                        {res.title} 
+            {!isLoading ? (
+                    <div className="scroll_view_wraper">
+                    { aroundVanuatu.map((res, index) => {
+                        return (
+                            index < 4 && 
+                            <div className="main_card_list" key={res.id}>
+                                <div className="main_card_image">
+                                <img src={`${SiteAPI.imgStroge}${res.image}`} alt="around vanuatu images" />
                                 </div>
-                            </Link>
+                                <Link to={`/around_vanuatu/${res.id}`} >
+                                    <div className="main_card_title">
+                                            {res.title} 
+                                    </div>
+                                </Link>
 
-                        </div>
-                    )
-                  })
+                            </div>
+                        )
+                    })
 
-                }
-                
-            </div>
+                    }
+                    
+                </div>
+            ) : (
+                <IsLoading /> 
+            )}
+
             
 
         </PageLayout>

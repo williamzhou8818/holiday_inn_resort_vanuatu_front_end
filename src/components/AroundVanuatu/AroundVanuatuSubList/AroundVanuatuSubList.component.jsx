@@ -13,6 +13,8 @@ import FoodAndDiningOut from '../FoodAndDiningOut/FoodAndDiningOut.component';
 /** styles */
 import './AroundVanuatuSubList.styles.scss';
 
+import IsLoading from './../../../layouts/IsLoading/IsLoading.component';
+
 const AroundVanuatuSublist = (props) => {
 
     /**Define API Data Model */
@@ -27,20 +29,25 @@ const AroundVanuatuSublist = (props) => {
 
     const [sideBarLabel, setSidebarLabel] = useState('');
 
+    const [isLoading, setIsLoading] = useState(false);
+
     
     
 
     /** Fetch Data From Api */
     useEffect(() => { 
+        setIsLoading(true);
         axios.get(`${SiteAPI.rootURI}api/navs`)
              .then(res => { 
                 setSidebarLabel(res.data[1].title);
+                setIsLoading(false);
              }).catch(err => {console.log(err)});
 
         // eslint-disable-next-line
     },[])
 
     useEffect(() => { 
+            setIsLoading(true);
             axios.get(`${SiteAPI.rootURI}api/around_vanuatu_sublist`)
                  .then(res => { 
                     //Filtering income data from database

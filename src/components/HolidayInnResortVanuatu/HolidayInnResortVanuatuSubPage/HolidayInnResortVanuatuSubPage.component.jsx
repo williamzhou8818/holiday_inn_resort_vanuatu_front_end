@@ -11,6 +11,7 @@ import Sidebar from './../../Sidebar/Sidebar.component';
 /**styles */
 import './HolidayInnResortVanuatuSubPage.styles.scss'
 
+import IsLoading from './../../../layouts/IsLoading/IsLoading.component';
 
 
 const HolidayInnResortVanuatuSubPage = (props) => { 
@@ -29,17 +30,23 @@ const HolidayInnResortVanuatuSubPage = (props) => {
         title:''
     });
 
+    const [isLoading, setIsLoading] = useState(false);
+
+
     /** Fetch Data From Api */
     useEffect(() => { 
+        setIsLoading(true)
         axios.get(`${SiteAPI.rootURI}api/navs`)
              .then(res => { 
                 setSidebarLabel(res.data[0].title);
+                setIsLoading(false)
              }).catch(err => {console.log(err)});
 
         // eslint-disable-next-line
     },[])
 
     useEffect(() => {
+        setIsLoading(true);
         axios.get(`${SiteAPI.rootURI}api/holidayinnresortvanauatusubpage`)
              .then(res => {
                 let _setHolidayInnResortVanuatuSubFilter = res.data.filter(data => {
@@ -48,18 +55,18 @@ const HolidayInnResortVanuatuSubPage = (props) => {
                 })
                 console.log(_setHolidayInnResortVanuatuSubFilter)
                 setHolidayInnResortVanuatuSub(_setHolidayInnResortVanuatuSubFilter);
-
+                setIsLoading(false)
              })
        
         // eslint-disable-next-line
     }, []);
 
     useEffect(() => {
+        setIsLoading(true);
         axios.get(`${SiteAPI.rootURI}api/holidayinnresortvanauatucate`)
              .then(res => {
-            
                 setHolidayInnResortVanuatuCate(res.data[props.match.params.id-1]);
-
+                setIsLoading(false);
              }) 
            
        
@@ -86,18 +93,27 @@ const HolidayInnResortVanuatuSubPage = (props) => {
                                                 let key= index + Math.random(10) ;
                                                 // console.log(key)
                                                 return (
-                                                   
-                                                        <div className="retail_service_list_view" key={key}>
-                                                            <div  className="retail_service_img">
-                                                                <img src={`${SiteAPI.imgStroge}${res.image}`} alt="" width="100%" height="100%"/>
-                                                            </div>
-                                                            <Link to={`/holiday_inn_resort_vanuatu/${res.ref_id}/${index}`}  className="retail_service_title">
-                                                                    <p className="link_style">
-                                                                        <strong>{res.title}</strong> <br/>
-                                                                        {res.sub_title}
-                                                                    </p>
-                                                            </Link>
-                                                        </div>
+                                                    <>
+                                                       {!isLoading ? (
+                                                                <div className="retail_service_list_view" key={key}>
+                                                                    <div  className="retail_service_img">
+                                                                        <img src={`${SiteAPI.imgStroge}${res.image}`} alt="" width="100%" height="100%"/>
+                                                                    </div>
+                                                                    <Link to={`/holiday_inn_resort_vanuatu/${res.ref_id}/${index}`}  className="retail_service_title">
+                                                                            <p className="link_style">
+                                                                                <strong>{res.title}</strong> <br/>
+                                                                                {res.sub_title}
+                                                                            </p>
+                                                                    </Link>
+                                                                </div>
+                                                            ) : (
+                                                                <IsLoading />
+                                                            )
+
+                                                       }
+                                                    </>
+                                                
+                                                
                                                    
 
                                                 )
@@ -128,9 +144,10 @@ const HolidayInnResortVanuatuSubPage = (props) => {
 /** exporting to Sidebar styles */
 const holiday_inn_resort_sidebar = {
     position: 'absolute',
-    right: '310px',
-    top:'-40px',
-    width: '1000px',
+    right: '135px',
+    top:'-34px',
+    fontWeight: 700,
+    width: '1200px',
     
 }
 

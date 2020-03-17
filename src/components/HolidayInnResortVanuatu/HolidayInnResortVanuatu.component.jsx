@@ -11,6 +11,7 @@ import { SiteAPI } from './../../utils/siteInit';
 /** style */
 import './HolidayInnResortVanuatu.styles.scss';
 
+import IsLoading from './../../layouts/IsLoading/IsLoading.component';
 
 const HolidayInnResortVanuatu =  ({  location }) => { 
 
@@ -21,21 +22,30 @@ const HolidayInnResortVanuatu =  ({  location }) => {
         image:''
 
     }]);
-
+    
     const [sideBarLabel, setSidebarLabel] = useState('');
 
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => { 
+
         let isCleanUp = false;
+        setIsLoading(true);
         if(!isCleanUp) {
             if (location.pathname === "/holiday_inn_resort_vanuatu") {
                 //TEMP PUT HARCODE NEED TO GET DATA FROM API
                 axios.get(`${SiteAPI.rootURI}api/navs`).then(res => {
                     setSidebarLabel(res.data[0].title);
+                
+                        setIsLoading(false);
+                    
                 });
                 axios.get(`${SiteAPI.rootURI}api/holidayinnresortvanauatucate`)
                 .then(res => { 
                     setHolidayInnResortVanuatus(res.data);
+                  
+                        setIsLoading(false);
+                 
                 })
             }
         }
@@ -71,24 +81,34 @@ const HolidayInnResortVanuatu =  ({  location }) => {
             </div>
             <div>            
                {/* {location.pathname} */}
+            
+                { holidayInnResortVanuatus.map((res) => {
+                        return ( 
+                            <>
+                            { !isLoading ? (
+                                    <div className="main_card_list" key={res.slug}>
+                                        <div className="main_card_image">
+                                            <img src={`${SiteAPI.imgStroge}${res.image}`} alt="restaurants bars images" />
+                                        </div>
+                                    
+                                            <div className="main_card_title">
+                                            <Link to={`/holiday_inn_resort_vanuatu/${res.id}`}  className="links_styles">
+                                                    {res.title} 
+                                            </Link>
+                                            </div>
+                                    </div>
+                                ) : (<IsLoading /> )
+                             } 
+                            </>
+                       
+                        )
+                     })
+    
+                   }
+               
+               
 
-               { holidayInnResortVanuatus.map((res) => {
-                    return (
-                        <div className="main_card_list" key={res.slug}>
-                            <div className="main_card_image">
-                                <img src={`${SiteAPI.imgStroge}${res.image}`} alt="restaurants bars images" />
-                            </div>
-                           
-                                <div className="main_card_title">
-                                <Link to={`/holiday_inn_resort_vanuatu/${res.id}`}  className="links_styles">
-                                        {res.title} 
-                                </Link>
-                                </div>
-                        </div>
-                    )
-                 })
-
-               }
+           
            </div>
 
             
@@ -100,9 +120,10 @@ const HolidayInnResortVanuatu =  ({  location }) => {
 /** export to sider bar nav */
 const HolidayInnResortVanuatu_Style = {
     position: 'absolute',
-    right: '230px',
-    top:'-30px',
-    width: '1000px',
+    right: '100px',
+    top:'-34px',
+    fontWeight: 700,
+    width: '1200px',
   
     
 }

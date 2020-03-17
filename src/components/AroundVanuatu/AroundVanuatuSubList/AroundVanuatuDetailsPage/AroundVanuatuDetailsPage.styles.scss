@@ -4,16 +4,15 @@
 }
 .restaurants_and_bars_details_contents {
     background: #EBEBEB;
-
     .restaurants_and_bars_details_image {
         width: 914.2px;
-       
-   
-        
+        height: 501px;
     }
     .restaurants_and_bars_details_contanter {
         padding: 10px 50px;
+ 
     }
+
   
 }
 .restaurants_and_bars_menu_and_icon  {
@@ -34,3 +33,23 @@
     max-width: 1080px !important;
 }
 
+
+.details_page_card_title { 
+    height: 76px;
+    border: 0px solid black;
+    background: #EBEBEB;
+    line-height: 46px;
+    -webkit-box-shadow: -1px 4px 7px -1px rgba(135,135,135,1);
+    -moz-box-shadow: -1px 4px 7px -1px rgba(135,135,135,1);
+    box-shadow: -1px 4px 7px -1px rgba(135,135,135,1);
+    
+    p {
+         font-size: 36px;
+         color: #3D3E77;
+         padding: 0px 42px;
+         font-weight: 700;
+         
+    }
+ 
+
+}

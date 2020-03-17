@@ -47,6 +47,9 @@ useEffect(() => {
                 <div className="restaurants_and_bars_details_contents">
                     <div className="restaurants_and_bars_details_image">
                         <img src={`${SiteAPI.imgStroge}${foodAndDiningOutDetail.image}`} alt="Bar Details" width="100%" height="100%"/> 
+                        <div className="details_page_card_title">
+                               <p>{foodAndDiningOutDetail.title}</p> 
+                            </div>
                         <div className="restaurants_and_bars_details_contanter"> 
                             <div dangerouslySetInnerHTML={{__html: foodAndDiningOutDetail.body}}  />
                         </div>

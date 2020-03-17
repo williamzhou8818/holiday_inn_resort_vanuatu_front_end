@@ -1,0 +1,49 @@
+.page_transion {
+    width: 100vw;
+    height: 100vh;
+    padding: 0 0;
+    margin:  -10px 0;
+    z-index: -1px;
+    opacity: 1;
+    background: transparent linear-gradient(180deg, #7E82BC 0%, #3F415E 100%);
+	-webkit-animation: gradientBG 2s ease-in-out;
+    animation: gradientBG 2s ease-in-out;
+
+    p {
+        color: transparent;
+    }
+}
+@-webkit-keyframes gradientBG {
+	0% {
+        opacity:1;
+        transition: opacity 1000ms ease-in-out;
+		background-position: 0% 50%;
+	}
+	50% {
+        opacity: 0.6;
+        transition: opacity 1000ms ease-in-out;
+		background-position: 100% 50%;
+	}
+	100% {
+        opacity: 0;
+        transition: opacity 1000ms ease-in-out;
+		background-position: 0% 50%;
+	}
+}
+@keyframes gradientBG {
+    0% {
+        opacity:1;
+        transition: opacity 1000ms ease-in-out;
+		background-position: 0% 50%;
+	}
+	50% {
+        opacity: 0.6;
+        transition: opacity 1000ms ease-in-out;
+		background-position: 100% 50%;
+	}
+	100% {
+        opacity: 0;
+        transition: opacity 1000ms ease-in-out;
+		background-position: 0% 50%;
+	}
+}
