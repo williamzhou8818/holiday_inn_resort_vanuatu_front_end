@@ -49,9 +49,13 @@ export default  () => {
 
     /**
      * GET Navbar data from Api
+     * http://testserver.vanuatu.jbgcore.com/api/sections
+     * 
+     * ${SiteAPI.rootURI}api/navs
      */
     useEffect(() => {
-        axios.get(`${SiteAPI.rootURI}api/navs`).then(res => {
+        axios.get(`http://testserver.vanuatu.jbgcore.com/api/sections`).then(res => {
+           // console.log(res.data)
             setNavbar(res.data);
         });
     // eslint-disable-next-line

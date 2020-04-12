@@ -5,7 +5,7 @@
     margin:  -10px 0;
     z-index: -1px;
     opacity: 1;
-    background: transparent linear-gradient(180deg, #7E82BC 0%, #3F415E 100%);
+    background-image: linear-gradient(to right bottom,  #7E82BC, #3F415E);;
 	-webkit-animation: gradientBG 2s ease-in-out;
     animation: gradientBG 2s ease-in-out;
 

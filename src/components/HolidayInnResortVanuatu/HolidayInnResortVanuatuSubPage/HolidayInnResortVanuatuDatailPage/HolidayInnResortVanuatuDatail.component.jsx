@@ -32,7 +32,7 @@ export default (props) => {
                 setIsLoading(false);
         })
         // eslint-disable-next-line
-    })
+    },[])
 
 
     useEffect(() => { 
@@ -52,7 +52,7 @@ export default (props) => {
                 <Sidebar sideBarLabel={sideBarLabel} style={holiday_inn_resort_Details_sidebar}/>
             </div>
             <div className="restaurants_and_bars_details_contents">
-                {isLoading ? (
+                {!isLoading ? (
                     <div className="restaurants_and_bars_details_image">
                     <img src={`${SiteAPI.imgStroge}${holidayInnResortVanuatuDatail.image}`} alt="Bar Details" width="100%" height="100%"/> 
                     <div className="details_page_card_title">

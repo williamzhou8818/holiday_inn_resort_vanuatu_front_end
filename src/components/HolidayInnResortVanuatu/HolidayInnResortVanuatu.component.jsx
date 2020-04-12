@@ -2,6 +2,8 @@ import React,  { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
 
+import Spinner from '../../layouts/Spinner';
+
 
 /** component */
 import PageLayout from './../../layouts/PageLayout/PageLayout.componet';
@@ -97,7 +99,7 @@ const HolidayInnResortVanuatu =  ({  location }) => {
                                             </Link>
                                             </div>
                                     </div>
-                                ) : (<IsLoading /> )
+                                ) : (<Spinner /> )
                              } 
                             </>
                        

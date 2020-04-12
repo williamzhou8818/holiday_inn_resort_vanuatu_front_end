@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './ShowCaseFooter.styles.scss';
 
 
@@ -10,9 +11,12 @@ import './ShowCaseFooter.styles.scss';
 
 export default () => { 
     return (
-        <div className="showcase_footer_wraper">
-            <p>TOUCH SCREEN TO BEGIN</p>
-        </div>
+        <Link to="/holiday_inn_resort_vanuatu">
+             <div className="showcase_footer_wraper">
+                <p>TOUCH SCREEN TO BEGIN</p>
+            </div>
+        </Link>
+  
     )
 
 }

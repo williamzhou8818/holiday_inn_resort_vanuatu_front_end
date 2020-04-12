@@ -1,5 +1,9 @@
+$color-primary-light: #7E82BC;
+$color-primary-dark: #3F415E;
+
 .page_layout_wrapper {
     position: fixed;
     display: grid;
+    background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
     grid-template-columns: 166px   1fr;
 }

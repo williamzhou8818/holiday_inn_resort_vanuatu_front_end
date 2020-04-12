@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
 
 /** utils */
@@ -31,6 +31,7 @@ const HolidayInnResortVanuatuSubPage = (props) => {
     });
 
     const [isLoading, setIsLoading] = useState(false);
+    const [pageCount, setPageCount] = useState(0);
 
 
     /** Fetch Data From Api */
@@ -71,7 +72,47 @@ const HolidayInnResortVanuatuSubPage = (props) => {
            
        
         // eslint-disable-next-line
-    }, [])
+    }, []);
+
+    /** onArrowUp Change show list array  */
+    const onArrowUp = () => { 
+        let replaceArray = [];
+        let maxIndex = 5;
+        let _current = 0;
+        _current += 2;
+        setPageCount(_current)
+        console.log('current '+ _current)
+
+        replaceArray =  holidayInnResortVanuatuSub.filter((res, index) => {
+            return  res.id > (index + _current) % holidayInnResortVanuatuSub.length;
+        })
+        
+
+        setHolidayInnResortVanuatuSub(replaceArray);
+
+    }
+
+    /** onArrowDown Change show List Item array */
+    const onArrowDown = () => {
+        let replaceArray = [];
+        // let _current = 0;
+        // _current -= 2;
+        // setPageCount(_current)
+        //console.log('current '+ _current)
+        props.history.push("/holiday_inn_resort_vanuatu/1");
+
+        replaceArray =  holidayInnResortVanuatuSub.filter((res, index) => {
+            console.log('llajfjlsjf ' + +(holidayInnResortVanuatuSub.length - 1))
+                
+            return  res.id > 0 ;
+            })
+          setHolidayInnResortVanuatuSub(replaceArray);
+        
+           
+        
+        
+
+    }
 
     return (
         <>
@@ -83,7 +124,7 @@ const HolidayInnResortVanuatuSubPage = (props) => {
                 <div className="events_header_warper" >
                         <div className="events_header_title">{holidayInnResortVanuatuCate.title}</div>
                                 <div className="event_ctr_bar_up">
-                                    <div className="arrow_up">
+                                    <div className="arrow_up" onClick={onArrowUp} >
                                     </div>
                                 </div>
                         
@@ -91,6 +132,7 @@ const HolidayInnResortVanuatuSubPage = (props) => {
               
                                             { holidayInnResortVanuatuSub.map((res,index) => { 
                                                 let key= index + Math.random(10) ;
+                                                   
                                                 // console.log(key)
                                                 return (
                                                     <>
@@ -130,7 +172,7 @@ const HolidayInnResortVanuatuSubPage = (props) => {
 
                     
                         <div className="event_ctr_bar_up">
-                                    <div className="arrow_down" >
+                                    <div className="arrow_down"  onClick={onArrowDown}>
                                     </div>
                         </div>
 
@@ -151,7 +193,7 @@ const holiday_inn_resort_sidebar = {
     
 }
 
-export default HolidayInnResortVanuatuSubPage;
+export default withRouter(HolidayInnResortVanuatuSubPage);
 
 {/* <div className="retail_service_wraper">
               

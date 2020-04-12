@@ -10,7 +10,10 @@ import {SiteAPI} from './../../utils/siteInit';
 /** styles */
 import './AroundVanuatu.styles.scss';
 
+
 import IsLoading from './../../layouts/IsLoading/IsLoading.component';
+
+import Loading from '../../layouts/Spinner';
 
  const AroundVanuatu = ({location}) => {
     
@@ -79,7 +82,7 @@ import IsLoading from './../../layouts/IsLoading/IsLoading.component';
                     
                 </div>
             ) : (
-                <IsLoading /> 
+                <Loading /> 
             )}
 
             
