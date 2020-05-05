@@ -54,7 +54,7 @@ export default  () => {
      * ${SiteAPI.rootURI}api/navs
      */
     useEffect(() => {
-        axios.get(`http://testserver.vanuatu.jbgcore.com/api/sections`).then(res => {
+        axios.get(`${SiteAPI.rootURI}/api/sections`).then(res => {
            // console.log(res.data)
             setNavbar(res.data);
         });
