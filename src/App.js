@@ -43,8 +43,8 @@ const App = ({location}) => {
 
   >
 
-  
-    <Switch location={location} >
+  <main>
+  <Switch location={location} >
           <Route exact path='/' component={ShowCasse} /> 
           <Route exact path='/restaurants_bars' component={RestaurantsAndBars} />
           <Route exact path='/restaurants_bars/:id' component={RestaurantsAndBarsDetails} />
@@ -59,6 +59,8 @@ const App = ({location}) => {
           <Route exact path='/holiday_inn_resort_vanuatu/:id/:id' component={HolidayInnResortVanuatuDetailsPage} />
 
      </Switch>
+  </main>
+   
 
     </CSSTransition>
 

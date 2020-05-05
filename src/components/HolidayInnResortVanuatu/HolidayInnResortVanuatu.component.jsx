@@ -36,7 +36,7 @@ const HolidayInnResortVanuatu =  ({  location }) => {
         if(!isCleanUp) {
             if (location.pathname === "/holiday_inn_resort_vanuatu") {
                 //TEMP PUT HARCODE NEED TO GET DATA FROM API
-                axios.get(`${SiteAPI.rootURI}api/navs`).then(res => {
+                axios.get(`${SiteAPI.rootURI}api/sections`).then(res => {
                     setSidebarLabel(res.data[0].title);
                 
                         setIsLoading(false);

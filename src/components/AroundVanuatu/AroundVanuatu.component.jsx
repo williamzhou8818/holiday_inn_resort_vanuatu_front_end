@@ -35,7 +35,7 @@ import Loading from '../../layouts/Spinner';
         
         if(location.pathname === '/around_vanuatu') {
             //temp put harcore here 
-            axios.get(`${SiteAPI.rootURI}api/navs`).then(res => {
+            axios.get(`${SiteAPI.rootURI}api/sections`).then(res => {
                 setSidebarLabel(res.data[1].title);
                 setIsLoading(false);
             })

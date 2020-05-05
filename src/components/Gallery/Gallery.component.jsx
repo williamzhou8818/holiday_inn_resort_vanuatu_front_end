@@ -16,7 +16,7 @@ import './Gallery.styles.scss';
     /**Data init */
     const [gallary, setGallary] = useState([{
         title:'',
-        gallery_images:`http://localhost:8000/storage/gallery/February2020/bKRFchffRN2JrbRgqsrx.jpg`
+        gallery_images:`galleries/May2020/cDI0hBedxfKb7gLICbdn.png`
     }]);
 
     const [imageDisplay, setImageDisplay] = useState({
@@ -36,7 +36,8 @@ import './Gallery.styles.scss';
         let isCleanUp = false;
         if(!isCleanUp) {
             if(props.location.pathname === '/gallery') {
-                axios.get(`${SiteAPI.rootURI}api/gallery`).then(res => {
+                axios.get(`${SiteAPI.rootURI}api/pages/galleries`).then(res => {
+                   console.log(res.data)
                     setGallary(res.data);
                 })
             }
@@ -53,7 +54,7 @@ import './Gallery.styles.scss';
         // console.log('asbkdkf lsl', props.location.pathname)
         if (!isCleanUp) {
             if (props.location.pathname === '/gallery') {
-                axios.get(`${SiteAPI.rootURI}api/navs`).then(res => {
+                axios.get(`${SiteAPI.rootURI}api/sections`).then(res => {
                     setSidebarLabel(res.data[3].title);
                 })
             }

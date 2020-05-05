@@ -23,12 +23,7 @@ export default  () => {
     
     /** Init State data will move to Redux
      *  */
-    const [pageMeta, setPageMeta] = useState({
-        site_header_image:'',
-        site_title:'',
-        site_logo: '',
-        current_datatime:''
-    });
+    const [pageMeta, setPageMeta] = useState([]);
     const [navBar, setNavbar] =  useState([{
         title:'',
         slug: ''
@@ -40,9 +35,9 @@ export default  () => {
      * GET Page Meta data from Api
      */
     useEffect(() => {
-        axios.get(`${SiteAPI.rootURI}api/pagemeta`).then(res => {
-            //console.log(res.data[0]);
-            setPageMeta(res.data[0]);
+        axios.get(`${SiteAPI.rootURI}/api/headers`).then(res => {
+            console.log(res.data);
+            setPageMeta(res.data);
         });
     // eslint-disable-next-line
     }, []);
@@ -66,15 +61,16 @@ export default  () => {
     return (
         <Fragment>
             <div className="header_banner">
-              <img src={`${SiteAPI.imgStroge}${pageMeta.site_header_image}`} alt="Site Header Banner" />    
+              <img src="http://vanuatu.jbgcore.com/storage/headers/May2020/jEZ6Eh57fYI6pvUUlX95.jpg" alt="Site Header Banner" />    
             </div>
             <div className="header_site_logo">
                 <Link to='/'>
-                    <img src={`${SiteAPI.imgStroge}${pageMeta.site_logo}`} alt="Site Header Banner" /> 
+                    <img src="http://vanuatu.jbgcore.com/storage/headers/March2020/n6jDxEivi2nUxhjecDCT.png" alt="Site Header Banner" /> 
                 </Link>
             </div>
             <div className="header_info_bar">
-                <div dangerouslySetInnerHTML={{__html: pageMeta.site_title }} /> 
+                {/* <div dangerouslySetInnerHTML={{__html: pageMeta.site_title }} />  */}
+                <div><p>Welcome to Holiday <span>Inn Resort Vanuatu</span></p></div>
                 <p>{moment(date).format('h:mm A')}</p>
                 <p> {moment(date).format('d')} {moment(date).format('MMM')} {moment(date).format('YYYY')} </p>   
             </div>
