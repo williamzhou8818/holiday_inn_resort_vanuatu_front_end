@@ -37,8 +37,12 @@ const RestaurantsAndBars = ({  location } ) => {
     useEffect(() => { 
         if (location.pathname === "/restaurants_bars") {
             //TEMP PUT HARCODE NEED TO GET DATA FROM API
-            axios.get(`${SiteAPI.rootURI}api/restaurantsandbars`).then(res => {
-            //    console.log(res.data)
+            // axios.get(`${SiteAPI.rootURI}api/restaurantsandbars`).then(res => {
+            // //    console.log(res.data)
+            //    setRestaurantsAndBars(res.data);
+            // })
+            axios.get(`${SiteAPI.rootURI}api/pages/restaurants_bars`).then(res => {
+                  console.log(res.data)
                setRestaurantsAndBars(res.data);
             })
         }

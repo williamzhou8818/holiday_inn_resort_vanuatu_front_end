@@ -15,6 +15,25 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 
+import PDFViewer from 'pdf-viewer-reactjs'
+
+import { Document, Page } from 'react-pdf';
+
+
+const ExamplePDFViewer = () => {
+    return (
+        <>
+             <img width="100%" height="1200px" src="http://vanuatu.jbgcore.com/storage/restaurants-bars/May2020/bENc5lc7wfKNckIXzCce.jpg" />
+
+        </>
+
+        // <Document
+        //     // document={{
+        //     //     url: 'http://vanuatu.jbgcore.com/storage/restaurants-bars/May2020/RUbXiRQUR4ACKd08VrHu.pdf',
+        //     // }}
+        // >
+    )
+}
 
 export default (props) => { 
     
@@ -50,7 +69,7 @@ export default (props) => {
 
 
     useEffect(() => { 
-        axios.get(`${SiteAPI.rootURI}api/restaurantsandbars`).then(res => {
+        axios.get(`${SiteAPI.rootURI}api/pages/restaurants_bars`).then(res => {
             console.log(res.data[props.match.params.id-1]);
             setRestaurantsAndBarsDetails(res.data[props.match.params.id-1]);
         })
@@ -66,10 +85,24 @@ export default (props) => {
                     <div className="restaurants_and_bars_details_image">
                         <img src={`${SiteAPI.imgStroge}${restaurantsAndBarsDetails.image}`} alt="Bar Details" width="100%" height="100%"/> 
                         <div className="restaurants_and_bars_details_contanter"> 
-                            <div dangerouslySetInnerHTML={{__html: restaurantsAndBarsDetails.body}}  />
+                            <h3>{restaurantsAndBarsDetails.sub_title}</h3>
+                            <p dangerouslySetInnerHTML={{__html: restaurantsAndBarsDetails.body}}  />
                         </div>
-                      
-                      { restaurantsAndBarsDetails.menu && 
+
+                        <div style={{textAlign: 'right', padding: '20% 5%'}} >
+                            <div className="location">
+                                <p ><img src="https://image.flaticon.com/icons/svg/484/484167.svg" width="16" height="16" />Location: {restaurantsAndBarsDetails.location}</p>   
+                            </div>
+                            <div className="open_time">
+                                <p ><img src="https://image.flaticon.com/icons/svg/2088/2088617.svg" width="16" height="16" />Open Hours: {restaurantsAndBarsDetails.open_hours}</p>                      
+                            </div>
+                            <div class="restaurants_and_bars_menu_and_icon">
+                                <img src="https://img.icons8.com/dotty/80/000000/literature.png" alt="Bar Details" width="20px" height="20px"/>
+                                <div onClick={handleClickOpen}>See menu</div>
+                            </div>
+                        </div>
+
+                      {/* { restaurantsAndBarsDetails.menu && 
                             <div className="restaurants_and_bars_menu_and_icon">
                                 <div>
                                     <img src="https://img.icons8.com/dotty/80/000000/literature.png"  alt="Bar Details" width="20px" height="20px"/>
@@ -79,7 +112,7 @@ export default (props) => {
                                 </div>
                             </div> 
                             
-                      } 
+                      }  */}
                           
                            
                     </div>
@@ -95,11 +128,12 @@ export default (props) => {
                         
                     >
                        
-                        <DialogContent   style={{width: '1000px'}} >
+                        <DialogContent   style={{width: '1000px', zIndex: 99999}} >
 
-                        <object width="100%" height="1200px" data="http://localhost:8000/storage/restaurants/February2020/Verandah%20a%20la%20carte%20April_supplied%20by%20Ben%20March%2019.pdf" type="application/pdf">   </object>
+                        {/* <embed width="100%" height="1200px" data="http://vanuatu.jbgcore.com/storage/restaurants-bars/May2020/RUbXiRQUR4ACKd08VrHu.pdf" type="application/pdf"></embed> */}
 
-
+                       {/* <ExamplePDFViewer */}
+                       <ExamplePDFViewer/>
                         
                         </DialogContent>
                         <DialogActions>
