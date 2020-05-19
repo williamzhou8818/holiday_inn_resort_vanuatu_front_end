@@ -1,21 +1,23 @@
 import React, { useEffect, useState} from 'react';
-
-/** Styles */
-import './AroundVanuatuEvents.styles.scss';
 import axios from 'axios';
+
+import PageLayout from './../../../layouts/PageLayout/PageLayout.componet'
+import Sidebar from './../../Sidebar/Sidebar.component'
 
 import { SiteAPI } from './../../../utils/siteInit'; 
 import moment from 'moment';
+import './AroundVanuatuEvents.styles.scss';
 
-export default  () => { 
+
+const CalendarOfEvents =  () => { 
     
     /**define database model */
 
     const [events, setEvents] = useState([{
-        event_title: '',
-        event_date_month: '',
-        event_location: '',
-        event_image: null,
+        event: '',
+        month: '',
+        location: '',
+        image: null,
         event_typing_event_schedule: ''
 
         
@@ -23,8 +25,8 @@ export default  () => {
 
     /** HTTP API */
     useEffect(() => { 
-        
-        axios.get(`${SiteAPI.rootURI}api/events`)
+       // ${SiteAPI.rootURI}api/events
+        axios.get(`${SiteAPI.rootURI}api/pages/calendar_of_events`)
              .then(res => { 
                  //console.log(res.data)
                  setEvents(res.data)
@@ -36,7 +38,14 @@ export default  () => {
     }, [])
 
     return (
-        <div className="events_warper">
+        <PageLayout>
+        <div className="page_layout_sidebar">
+              <Sidebar sideBarLabel={`AROUND VANUATU`}  style={around_vanuatu_sublist_styles} MainPath={`/around_vanuatu`}/>
+        </div>
+ <div className="events_warper">
+         <div>
+             <img src={`${SiteAPI.imgStroge}${events[0].image}`} alt="Calendar Events"/>
+         </div>
             <table>
                 <tr>
                     <th>EVENT</th>
@@ -47,10 +56,10 @@ export default  () => {
                     { events.map((event) => { 
                         return (
                             <tr>
-                                <td>{event.event_title}</td>
+                                <td>{event.event}</td>
                                
                                 <td> 
-                                    {event.event_date_month && <>{moment(event.event_date_month).format('MMMM')} </> }
+                                    {event.month && <>{moment(event.event_date_month).format('MMMM')} </> }
                                     {event.event_typing_event_schedule && <>{event.event_typing_event_schedule} </> }
                                 </td>
                                 <td>{event.event_location}</td>
@@ -67,5 +76,16 @@ export default  () => {
             </table>
           
         </div>
+        </PageLayout>
+       
     )
 } 
+/** exporting to Sidebar styles */
+const around_vanuatu_sublist_styles = {
+    position: 'absolute',
+    right: '87px',
+    top:'-40px',
+    width: '1000px',
+    
+}
+export default CalendarOfEvents;

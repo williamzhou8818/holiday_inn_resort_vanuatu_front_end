@@ -18,7 +18,7 @@ const FoodAndDiningOut = () => {
 
     useEffect(() => { 
 
-        axios.get(`${SiteAPI.rootURI}api/foodanddiningout`)
+        axios.get(`${SiteAPI.rootURI}api/pages/food_and_dining_outs`)
              .then(res => { 
                  console.log(res.data);
                  setFoodAndDiningOut(res.data);
@@ -34,11 +34,11 @@ const FoodAndDiningOut = () => {
                              return (
                                  <>
                                    <div className="retail_service_list_view">
-                                       <div  className="retail_service_img">
+                                       <div  className="retail_service_img" style={{height:'180px'}}>
                                           <img src={`${SiteAPI.imgStroge}${res.image}`} alt="" width="100%" height="100%"/>
                                         </div>
                                         <Link to={`/around_vanuatu/4/${res.id}`}  className="retail_service_title">
-                                                <p>
+                                                <p style={{lineHeight:"40px", marginTop:"40px"}}>
                                                     <strong>{res.title}</strong> <br/>
                                                     {res.sub_title}
                                                 </p>

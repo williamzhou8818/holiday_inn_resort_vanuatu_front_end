@@ -33,7 +33,7 @@ export default (props) => {
 
 
     useEffect(() => { 
-        axios.get(`${SiteAPI.rootURI}api/around_vanuatu_sublist`).then(res => {
+        axios.get(`${SiteAPI.rootURI}api/pages/key_holiday_services`).then(res => {
             console.log(res.data[props.match.params.id-1]);
             setAroundVanuatuDetails(res.data[props.match.params.id-1]);
         })

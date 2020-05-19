@@ -47,32 +47,38 @@ const HolidayInnResortVanuatuSubPage = (props) => {
     },[])
 
     useEffect(() => {
-        setIsLoading(true);
-        axios.get(`${SiteAPI.rootURI}api/holidayinnresortvanauatusubpage`)
-             .then(res => {
-                let _setHolidayInnResortVanuatuSubFilter = res.data.filter(data => {
-                    return data.ref_id == props.match.params.id
-                    //console.log(data)
-                })
-                console.log(_setHolidayInnResortVanuatuSubFilter)
-                setHolidayInnResortVanuatuSub(_setHolidayInnResortVanuatuSubFilter);
-                setIsLoading(false)
-             })
-       
+        setIsLoading(true); 
+        if (props.match.params.id) {
+            axios.get(`${SiteAPI.rootURI}api/pages/${props.match.params.id}`)
+            .then(res => {
+
+               console.log(res.data)
+               // let _setHolidayInnResortVanuatuSubFilter = res.data.filter(data => {
+               //     return data.ref_id == props.match.params.id
+               //     //console.log(data)
+               // })
+               // console.log(_setHolidayInnResortVanuatuSubFilter)
+               setHolidayInnResortVanuatuSub(res.data);
+               setIsLoading(false)
+            })
+      
+
+        }
+
         // eslint-disable-next-line
     }, []);
 
-    useEffect(() => {
-        setIsLoading(true);
-        axios.get(`${SiteAPI.rootURI}api/holidayinnresortvanauatucate`)
-             .then(res => {
-                setHolidayInnResortVanuatuCate(res.data[props.match.params.id-1]);
-                setIsLoading(false);
-             }) 
+    // useEffect(() => {
+    //     setIsLoading(true);
+    //     axios.get(`${SiteAPI.rootURI}api/holidayinnresortvanauatucate`)
+    //          .then(res => {
+    //             setHolidayInnResortVanuatuCate(res.data[props.match.params.id-1]);
+    //             setIsLoading(false);
+    //          }) 
            
        
-        // eslint-disable-next-line
-    }, []);
+    //     // eslint-disable-next-line
+    // }, []);
 
     /** onArrowUp Change show list array  */
     const onArrowUp = () => { 
@@ -139,12 +145,11 @@ const HolidayInnResortVanuatuSubPage = (props) => {
                                                        {!isLoading ? (
                                                                 <div className="retail_service_list_view" key={key}>
                                                                     <div  className="retail_service_img">
-                                                                        <img src={`${SiteAPI.imgStroge}${res.image}`} alt="" width="100%" height="100%"/>
+                                                                        <img src={`${SiteAPI.imgStroge}${res.image}`} alt="" width="100%"/>
                                                                     </div>
-                                                                    <Link to={`/holiday_inn_resort_vanuatu/${res.ref_id}/${index}`}  className="retail_service_title">
+                                                                    <Link to={`/holiday_inn_resort_details/${res.id}`}  className="retail_service_title">
                                                                             <p className="link_style">
                                                                                 <strong>{res.title}</strong> <br/>
-                                                                                {res.sub_title}
                                                                             </p>
                                                                     </Link>
                                                                 </div>

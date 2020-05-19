@@ -37,9 +37,10 @@ export default (props) => {
 
     useEffect(() => { 
         setIsLoading(true);
-        axios.get(`${SiteAPI.rootURI}api/holidayinnresortvanauatusubpage`).then(res => {
-            console.log(res.data[props.match.params.id]);
-            setHolidayInnResortVanuatuDatail(res.data[props.match.params.id]);
+        axios.get(`${SiteAPI.rootURI}api/pages/events_and_meetings`).then(res => {
+            console.log(res.data[props.match.params.id - 1 ]);
+            
+            setHolidayInnResortVanuatuDatail(res.data[props.match.params.id - 1]);
             setIsLoading(false);
         })
         // eslint-disable-next-line

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect , Component} from 'react';
 import axios from 'axios';
 
 /**components */
@@ -20,19 +20,34 @@ import PDFViewer from 'pdf-viewer-reactjs'
 import { Document, Page } from 'react-pdf';
 
 
-const ExamplePDFViewer = () => {
-    return (
-        <>
-             <img width="100%" height="1200px" src="http://vanuatu.jbgcore.com/storage/restaurants-bars/May2020/bENc5lc7wfKNckIXzCce.jpg" />
+class ExamplePDFViewer extends Component{
+    state = {
+        numPages: null,
+        pageNumber: 1,
+      }
+     
+      onDocumentLoadSuccess = ({ numPages }) => {
+        this.setState({ numPages });
+      }
+   
+      render() {
+        const { pageNumber, numPages } = this.state;
+     
+        return (
+          <div>
+            <Document
+              file="http://vanuatu.jbgcore.com/storage/restaurants-bars/May2020/kKQ1w1R0INAH7k6Y33wy.pdf"
+              onLoadSuccess={this.onDocumentLoadSuccess}
+            >
+              <Page pageNumber="1" />
+            </Document>
+            <p>Page {pageNumber} of {numPages}</p>
+          </div>
+        );
+      }
 
-        </>
-
-        // <Document
-        //     // document={{
-        //     //     url: 'http://vanuatu.jbgcore.com/storage/restaurants-bars/May2020/RUbXiRQUR4ACKd08VrHu.pdf',
-        //     // }}
-        // >
-    )
+        
+    
 }
 
 export default (props) => { 
@@ -70,7 +85,8 @@ export default (props) => {
 
     useEffect(() => { 
         axios.get(`${SiteAPI.rootURI}api/pages/restaurants_bars`).then(res => {
-            console.log(res.data[props.match.params.id-1]);
+            // console.log(res.data[props.match.params.id-1]);
+            console.log(JSON.parse(res.data[props.match.params.id-1].menu_image));
             setRestaurantsAndBarsDetails(res.data[props.match.params.id-1]);
         })
         // eslint-disable-next-line
@@ -97,7 +113,7 @@ export default (props) => {
                                 <p ><img src="https://image.flaticon.com/icons/svg/2088/2088617.svg" width="16" height="16" />Open Hours: {restaurantsAndBarsDetails.open_hours}</p>                      
                             </div>
                             <div class="restaurants_and_bars_menu_and_icon">
-                                <img src="https://img.icons8.com/dotty/80/000000/literature.png" alt="Bar Details" width="20px" height="20px"/>
+                                <p><img src="https://img.icons8.com/dotty/80/000000/literature.png" alt="Bar Details" width="30px" height="30px"/></p>
                                 <div onClick={handleClickOpen}>See menu</div>
                             </div>
                         </div>

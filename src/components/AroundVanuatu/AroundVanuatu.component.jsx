@@ -46,7 +46,8 @@ import Loading from '../../layouts/Spinner';
 
     useEffect(() => {
         if(location.pathname === '/around_vanuatu') {
-            axios.get(`${SiteAPI.rootURI}api/around_vanuatu`).then(res => { 
+            // ${SiteAPI.rootURI}api/around_vanuatu
+            axios.get(`${SiteAPI.rootURI}api/pages/around_vanuatu_sections`).then(res => { 
                 setAroundVanuatu(res.data);
                 setIsLoading(false);
             })
@@ -68,7 +69,7 @@ import Loading from '../../layouts/Spinner';
                                 <div className="main_card_image">
                                 <img src={`${SiteAPI.imgStroge}${res.image}`} alt="around vanuatu images" />
                                 </div>
-                                <Link to={`/around_vanuatu/${res.id}`} >
+                                <Link to={`/around_vanuatu/${res.slug}`} >
                                     <div className="main_card_title">
                                             {res.title} 
                                     </div>

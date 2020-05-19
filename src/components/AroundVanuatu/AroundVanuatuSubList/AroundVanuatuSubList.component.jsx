@@ -27,6 +27,8 @@ const AroundVanuatuSublist = (props) => {
         body: ''
     }]);
 
+    const [retailServices, setRetailServices] = useState([]);
+
     const [sideBarLabel, setSidebarLabel] = useState('');
 
     const [isLoading, setIsLoading] = useState(false);
@@ -45,30 +47,60 @@ const AroundVanuatuSublist = (props) => {
 
         // eslint-disable-next-line
     },[])
-
-    useEffect(() => { 
+  useEffect(() => { 
             setIsLoading(true);
-            axios.get(`${SiteAPI.rootURI}api/around_vanuatu_sublist`)
+            axios.get(`${SiteAPI.rootURI}api/pages/key_holiday_services`)
                  .then(res => { 
                     //Filtering income data from database
                     
-                 const _AroundVanuatuSubItemList = 
-                            res.data.filter(around_vanuatu_subitem_list => around_vanuatu_subitem_list.ref_categories_id == props.match.params.id );
 
-                   //  console.log(_welcome_to_vanuatu)
-                   setAroundVanuatuSubItemList(_AroundVanuatuSubItemList);
+                  
+                   setAroundVanuatuSubItemList(res.data);
 
                      
                  })
                  .catch(err => console.log(err))
         // eslint-disable-next-line
     }, []);
+
+    useEffect(() => { 
+        setIsLoading(true);
+        axios.get(`${SiteAPI.rootURI}api/pages/retail_and_services`)
+             .then(res => { 
+                //Filtering income data from database
+                
+
+              
+               setRetailServices(res.data);
+
+                 
+             })
+             .catch(err => console.log(err))
+    // eslint-disable-next-line
+}, []);
+    // useEffect(() => { 
+    //         setIsLoading(true);
+    //         axios.get(`${SiteAPI.rootURI}api/around_vanuatu_sublist`)
+    //              .then(res => { 
+    //                 //Filtering income data from database
+                    
+    //              const _AroundVanuatuSubItemList = 
+    //                         res.data.filter(around_vanuatu_subitem_list => around_vanuatu_subitem_list.ref_categories_id == props.match.params.id );
+
+    //                //  console.log(_welcome_to_vanuatu)
+    //                setAroundVanuatuSubItemList(_AroundVanuatuSubItemList);
+
+                     
+    //              })
+    //              .catch(err => console.log(err))
+    //     // eslint-disable-next-line
+    // }, []);
     
     return (<div>
-            { props.match.params.id == 1 && (
+            { props.match.params.id == 'key_holiday_services' && (
                         <PageLayout>
                                 <div className="page_layout_sidebar">
-                                    <Sidebar sideBarLabel={sideBarLabel}  style={around_vanuatu_sublist_styles} MainPath={`/around_vanuatu`}/>
+                                    <Sidebar sideBarLabel={`AROUND VANUATU`}  style={around_vanuatu_sublist_styles} MainPath={`/around_vanuatu`}/>
                                 </div>
                                 <div className="around_vanuatu_sublist__scroll_view_wraper">
                                     { aroundVanuatuSubItemList.map(res => { 
@@ -145,18 +177,17 @@ const AroundVanuatuSublist = (props) => {
 
 
             {/* Show Event Page Render 3 */} 
-            { props.match.params.id == 3 && (
+            { props.match.params.id == 'retail_and_services' && (
                     
                     <PageLayout>
                         <div className="page_layout_sidebar">
-                            <Sidebar sideBarLabel={sideBarLabel}  style={around_vanuatu_sublist_styles} />
+                            <Sidebar sideBarLabel={`AROUND VANUATU`}  style={around_vanuatu_sublist_styles} />
                         </div>
                         <div className="!#">
-                            { aroundVanuatuSubItemList.map(res => { 
-                                return  ( 
+                              
                                     <>
-                                    <div className="events_header_warper" key={res.id}>
-                                        <div className="events_header_title">{res.title}</div>
+                                    <div className="events_header_warper" key={'h32111'}>
+                                        <div className="events_header_title">{`RETAIL & SERVICES`}</div>
                                             <div className="event_ctr_bar_up">
                                                 <div className="arrow_up">
                                                 </div>
@@ -171,8 +202,8 @@ const AroundVanuatuSublist = (props) => {
 
                                         </div>
                                     </>
-                                )
-                            })
+                               
+                            
                                 
                             }
                         </div>
@@ -186,18 +217,18 @@ const AroundVanuatuSublist = (props) => {
 
 
             {/* Show Event Page Render 4 */} 
-            { props.match.params.id == 4 && (
+            { props.match.params.id == 'food_and_dining_outs' && (
                      
                  <PageLayout>
                      <div className="page_layout_sidebar">
-                         <Sidebar sideBarLabel={sideBarLabel}  style={around_vanuatu_sublist_styles}  />
+                         <Sidebar sideBarLabel={`AROUND VANUATU`}  style={around_vanuatu_sublist_styles}  />
                      </div>
                      <div className="!#">
-                         { aroundVanuatuSubItemList.map(res => { 
-                             return  ( 
+                         
+                           
                                  <>
-                                 <div className="events_header_warper" key={res.id}>
-                                     <div className="events_header_title">{res.title}</div>
+                                 <div className="events_header_warper" key={`3hwqszzw`}>
+                                     <div className="events_header_title">{`FOOD & DINING OUT`}</div>
                                          <div className="event_ctr_bar_up">
                                              <div className="arrow_up">
                                              </div>
@@ -212,8 +243,8 @@ const AroundVanuatuSublist = (props) => {
 
                                      </div>
                                  </>
-                             )
-                         })
+                            
+                        
                              
                          }
                      </div>

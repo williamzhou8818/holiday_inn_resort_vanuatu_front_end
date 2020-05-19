@@ -42,7 +42,8 @@ const HolidayInnResortVanuatu =  ({  location }) => {
                         setIsLoading(false);
                     
                 });
-                axios.get(`${SiteAPI.rootURI}api/holidayinnresortvanauatucate`)
+                // ${SiteAPI.rootURI}api/holidayinnresortvanauatucate
+                axios.get(`${SiteAPI.rootURI}api/pages/venue_guide_sections`)
                 .then(res => { 
                     setHolidayInnResortVanuatus(res.data);
                   
@@ -93,11 +94,11 @@ const HolidayInnResortVanuatu =  ({  location }) => {
                                             <img src={`${SiteAPI.imgStroge}${res.image}`} alt="restaurants bars images" />
                                         </div>
                                     
-                                            <div className="main_card_title">
-                                            <Link to={`/holiday_inn_resort_vanuatu/${res.id}`}  className="links_styles">
-                                                    {res.title} 
-                                            </Link>
-                                            </div>
+                                        <div className="main_card_title">
+                                        <Link to={`/holiday_inn_resort_vanuatu/${res.type}`}  className="links_styles">
+                                                {res.title} 
+                                        </Link>
+                                        </div>
                                     </div>
                                 ) : (<Spinner /> )
                              } 
@@ -123,6 +124,7 @@ const HolidayInnResortVanuatu =  ({  location }) => {
 const HolidayInnResortVanuatu_Style = {
     position: 'absolute',
     right: '100px',
+    textAlign: 'center',
     top:'-34px',
     fontWeight: 700,
     width: '1200px',
