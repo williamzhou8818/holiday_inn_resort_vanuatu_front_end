@@ -114,10 +114,9 @@ import './Gallery.styles.scss';
 /** export to sider bar nav */
 const Gallery_Style = {
         position: 'absolute',
-        right: '-200px',
-        top:'-33px',
+        right: '-230px',
+        top:'-30px',
         width: '1000px',
-        
 }
 
 export default  withRouter(Gallery);
